@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<title>Usage</title>
+<head>
+    {% load staticfiles %}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+{% load staticfiles %}
+    <!--navbar-->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="dsf-header">
+            <a class="navbar-brand" href="/">Android GUI Search Engine</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'add_data' %}">Add Data</a></li>
+            <li class="dropdown">
+            <a href="#"class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About
+            <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'about' %}">The Team</a></li>
+                    <li class="active"><a href="{% url 'usage' %}">Usage</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+        {% load staticfiles %}
+        <div class="about-root">
+            <div class="about-text">
+                
+                <center><h1>Usage</h1>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp; Welcome to the GUI Search Engine! GSE is a new tool for Android Developers to find new ideas 
+                    for GUIs. All you have to do is upload XML from your repository and click search. There are four different 
+                    algorithms you can choose from. The default is by components, which does one thing, then there are 3 others.
+                </p>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp; Resuls are displayed by similarity to the original file(s). The name of the app will be displayed, followed by the closest XML files to the ones inputted by the user, and the number of components in that file. Also displayed are the number of components in the XML files the user inputted, for comparison.
+                   
+                
+                        <a href="{% url 'index' %}">Click here to go to search screen.</a>
+                    </p>
+                </center>
+            </div>
+        </div>
+
+    </body>
+</html>

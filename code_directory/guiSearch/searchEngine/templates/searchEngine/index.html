@@ -1,0 +1,66 @@
+<!doctype html5>
+
+<html>
+<head>
+    <title>Android GUI Search Engine</title>
+    {% load staticfiles %}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!--navbar-->
+<!--    This page is the home page, and search screen.-->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="dsf-header">
+            <a class="navbar-brand" href="/">Android GUI Search Engine</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="{% url 'add_data' %}">Add Data</a></li>
+            <li class="dropdown">
+            <a href="#"class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About
+            <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'about' %}">The Team</a></li>
+                    <li><a href="{% url 'usage' %}">Usage</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--form for adding -->
+    {% load staticfiles %}   
+    <div  class="container text-center upload">
+        <h1>Upload Files</h1>
+        {% csrf_token %}
+
+        <form action="/searchAlg/" name="searchForm" id="searchForm" method="post" enctype="multipart/form-data" ><br>
+            {% csrf_token %}
+            <center> 
+                <input type="file" id="fileUp" name="file" accept= "text/xml" multiple="multiple" required > 
+                <br>
+                <select class="form-control">
+                    <option value="/searchAlg/">Component Search</option>
+                    <option value="/countSearch/">Count Search</option>
+                    <option value="/hamming_search/">Hamming Search</option>
+                    <option value="/euclidean_search/">Euclidean Search</option>
+                </select>
+                <br>
+                <input id="submitFile" type="submit" value="Search" class="btn btn-primary">
+            </center>
+        </form>
+    </div>
+    <script type="text/javascript" src="{% static "js/script.js" %}"></script>
+</body>
+</html>
+ 

@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>About</title>
+    {% load staticfiles %}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static "css/styleabout.css" %}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+    <body>
+	{% load staticfiles %}
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="dsf-header">
+            <a class="navbar-brand" href="/">Android GUI Search Engine</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'add_data' %}">Add Data</a></li>
+<!--            <ul class="nav navbar-nav navbar-right">-->
+            <li class="dropdown">
+            <a href="#"class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About
+            <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li class="active"><a href="{% url 'about' %}">The Team</a></li>
+                    <li><a href="{% url 'usage' %}">Usage</a></li>
+                </ul>
+            </li>
+<!--        </ul>-->
+        </ul>
+    </div>
+</nav>
+
+        {% load staticfiles %}
+        <div class="about-root">
+            <div class="about-text">
+                <!--Names of who worked on it, the reason for the project -->
+                <h1>Android GUI Search Engine</h1>
+                <p class="paragraph">
+                    Search engines  have become an essential part of the web, as they help organize and easily present 
+                    pertinent information to users. General search engines such as Google allow users to search the entire 
+                    web for information they need; however, more specific search engines, such as those built for Github, 
+                    and Google Play, can specifically support developers by allowing them search for and learn from applications 
+                    similar to those that they are attempting to build themselves. To contribute towards the goal of increasing 
+                    tools available for mobile application developers this project proposes a new search engine for Android 
+                    applications that uses information from apps’ Graphical User Interfaces as queries. The goal of this project 
+                    will be to generate a web application with a simple interface that will rely on the Apache Lucene indexing 
+                    engine to retrieve relevant applications that contain GUI layouts similar to those entered in a query. 
+                    This project will use information from both open source and Google Play applications to extract component’s 
+                    information from APKs.
+                </p>
+
+            </div>
+            <div class="footer">
+                <div class="author-title">
+                    <h1>
+                        Creators
+                    </h1>
+                </div>
+                <div class="authors">
+                    <div class="author michelle">
+                        <img src="{% static 'images/michelle.png' %}" class="propic">
+                        <p>
+                            Michelle Chen
+                        </p>
+                    </div>
+                    <div class="author jonathan">
+                        <img src="{% static 'images/jlin.png' %}" class="propic">
+                        <p>
+                            Jonathan Lin
+                        </p>
+                    </div>
+                    <div class="author ann">
+                        <img src="{% static 'images/ann.png' %}" class="propic">
+                        <p>
+                            Ann Gao
+                        </p>
+                    </div>
+                    <div class="author chris">
+                        <img src="{% static 'images/chris.jpg' %}" class="propic">
+                        <p>
+                            Chris Suh
+                        </p>
+                    </div>
+                    <div class="author danny">
+                        <img src="{% static 'images/danny.png' %}" class="propic">
+                        <p>
+                            Danny Powers
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>

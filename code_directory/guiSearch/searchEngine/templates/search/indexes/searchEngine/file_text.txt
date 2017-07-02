@@ -1,0 +1,3 @@
+{% for comp in object.total_comps_list %}
+{{ comp }}
+{% endfor %}

@@ -1,0 +1,95 @@
+body{
+        background: rgb(152,214,234) !important; /* Old browsers */
+	height:100vh;
+	-webkit-background-size: cover;
+ 	background-repeat: no-repeat;
+	-moz-background-size: cover;
+ 	-o-background-size: cover;
+ 	background-size: cover;
+        background: -moz-linear-gradient(top, rgba(152,214,234,1) 0%, rgba(176,216,229,1) 24%, rgba(223,212,220,1) 100%) !important; /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(152,214,234,1) 0%,rgba(176,216,229,1) 24%,rgba(223,212,220,1) 100%) !important; /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(152,214,234,1) 0%,rgba(176,216,229,1) 24%,rgba(223,212,220,1) 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05abe0', endColorstr='#dfd4dc',GradientType=0 ); /* IE6-9 */
+}
+h1#title {
+        font-family: 'Roboto Slab', serif;
+        font-size: 3.2em;
+        color: black;
+        padding-top: 10px;
+        position: left;
+}
+
+h4#basedOn {
+        font-family: 'Roboto Slab', serif;
+        color: black;
+}
+
+div#midCol {
+        font-family: 'Roboto Slab', serif;
+        color: black;
+        background-color: #C06014;
+        height: 100px;
+
+}
+
+table{
+/*            border: 1px solid black;*/
+}
+        td, th {
+            border: 1px solid #999;
+            padding: 1rem;
+        }
+
+tr#tableData:nth-child(even){background-color: #ffb483}
+ {
+    font-family: 'Roboto Slab', serif;
+    color: black;
+       
+}
+
+
+.btn {
+       background-color: #000000 !important;
+       margin-bottom: 10px !important;
+}
+
+.modal-body {
+    position: relative;
+    overflow-y: auto;
+    max-height: 600px;
+    padding: 10px;
+/*        margin-top: -300px !important;*/
+    margin-left:  50px !important; 
+        width: 700px; 
+
+}
+
+@media (min-width: 768px) {
+  .modal-xl {
+    width: 50%;
+   max-width:1200px;
+  }
+}
+
+.modal.modal-wide .modal-dialog {
+  width: 75%;
+}
+.modal-wide .modal-body {
+  overflow-y: auto;
+}
+
+body .modal-admin {
+    /* new custom width */
+    width: 700px;
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    margin-left: -375px;
+}
+
+/* Cosmetic only */
+.easyPaginateNav a {padding:5px;}
+.easyPaginateNav a.current {font-weight:bold;text-decoration:underline;}
+
+a{
+    color: red;
+
+}

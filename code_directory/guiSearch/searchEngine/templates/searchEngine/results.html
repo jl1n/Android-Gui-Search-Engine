@@ -1,0 +1,127 @@
+<!DOCTYPE html5>
+
+<html>
+<head>
+    <title>Android GUI Search Engine-results</title>
+
+    {% load staticfiles %}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+
+    
+      <meta charset="utf-8">
+    
+<!--  <meta name="viewport" content="width=device, initial-scale=2">-->
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+</head>
+<script type="text/javascript">
+        //var item = "<?php echo $item.4; ?>";
+        function displayXML(xmlString) {
+            var myStr = (xmlString.replace(/~`/g,"<br>").replace(/\t/g,"&nbsp;&nbsp;&nbsp;&nbsp;"));
+            var wnd = window.open("",'name','height=500,width=500');
+            wnd.document.write(myStr);
+            wnd.document.close();
+            if (window.focus) {wnd.focus()}
+        }
+</script>
+<script type="text/javascript" src="{% static "js/jquery.easyPaginate.js" %}"></script>
+    <script type="text/javascript">
+               $(function() {
+                 $("#table").easyPaginate({
+                   paginateElement: 'tr',
+                   elementsPerPage: 25
+                   
+                 });
+                }); </script>
+<body>
+<!--navbar-->
+<!--This page shows the results of the search.-->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="dsf-header">
+            <a class="navbar-brand" href="/">Android GUI Search Engine</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'add_data' %}">Add Data</a></li>
+            <li class="dropdown">
+            <a href="#"class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About
+            <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'about' %}">The Team</a></li>
+                    <li><a href="{% url 'usage' %}">Usage</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+    <!--for showing inputted files and component counts-->
+    {% load staticfiles %}
+    <div class="container text-left" style="margin:auto auto;">
+        <h1 id="title">Results</h1>
+        <h3>From Input Files:</h3>
+        <h5>
+        {% for item, comps in sorted_results.input_stuff %}
+            {{item}}
+               <br>
+                {% for indiv in comps %}
+                  {{indiv.0}}
+                  :
+                  {{indiv.1}}
+                  &nbsp;
+              
+               {% endfor %}
+        <br>
+        <br>
+        {% endfor %}
+
+       </h5>
+    </div>
+        <div class="container text-center" style="margin:auto auto;">
+        <center>
+
+            <!--table for showing results of search-->
+        <table id="table"  border-spacing: 10px 50px;>
+            {% for item in sorted_results.results %}
+            <tr>
+                <th>{{ forloop.counter}}</th>
+               <th>{{ item.2 }}</th>
+            {% for file, xml, counts in  item.3 %} 
+            <th>
+                <a title = "click to view" href = "#" onclick=" displayXML(&quot;{{xml|force_escape|escapejs}}&quot;);return false;">{{ file }}</a>
+            <h5>Components:</h5>
+            {% for countType in counts %}
+               <h5> {{countType}}</h5>
+            
+            {% endfor %}
+        </th>
+        {% endfor %} 
+     </tr>   
+    {% endfor %}
+</table>
+
+</center>
+
+</div>
+</body>
+</html>
+

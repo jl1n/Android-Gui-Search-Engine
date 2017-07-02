@@ -1,0 +1,111 @@
+/* css for index.html, usage.html, add_data.html */
+
+body{
+	background-color: #fff;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto;
+}
+
+h1 {
+	text-transform:uppercase;
+	font-size:28px;
+	color:#222;
+	letter-spacing:2px;
+	padding:20px;
+}
+
+.data{
+	text-align: center;
+	justify-content: center;
+}
+
+.navbar{
+	width: 100%;
+}
+
+.upload{
+	flex-direction: column;
+	justify-content: center;
+	width: 50%;
+}
+
+.link {
+	text-transform: uppercase;
+	letter-spacing:2px;
+	position:absolute;
+	color:green;
+	font-size: .8em;
+}
+
+#infoButton {
+	background:transparent;
+	color:green;
+	text-transform:uppercase;
+	letter-spacing:2px;
+	position:absolute;
+	border:0px;
+	font-size:.8em;
+}
+
+.infoButton:hover {
+	text-decoration:underline;
+	color:blue;
+}
+
+.info {
+	visibility:hidden;
+	position:absolute;
+	z-index:5;
+	padding:20px;
+	font-family: 'Roboto', serif;
+	width:300px;
+	background: rgba(255, 255,255, 1);
+	
+}
+
+#subButt {
+	margin-top:25px;
+}
+
+p{
+	padding-left: 4em;
+	padding-right: 4em;
+	width:700px;
+}
+
+h4 {
+	text-transform:uppercase;
+	letter-spacing:2px;
+    padding-top: 0px;
+	font-size:2em;
+	color:green;
+	font-weight: 200;
+	padding-bottom:3px;
+	border-bottom:1px solid green;
+
+}
+
+h4#uploadText {
+	font-size: 5em;
+	text-align: center; 
+}
+
+
+tr:nth-child(even){background-color: lightgrey}
+
+tr:nth-child(odd) {background: #FFF}
+
+
+.easyPaginateNav a {padding:5px;}
+.easyPaginateNav a.current {font-weight:bold;text-decoration:underline;}
+
+
+table#table {
+}
+        td, th {
+            border: 1px solid #999;
+            padding: 1rem;
+        }
+
+tr#tableData:nth-child(even){background-color: #ffb483}
